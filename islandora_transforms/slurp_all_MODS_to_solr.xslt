@@ -4,7 +4,6 @@
   xmlns:java="http://xml.apache.org/xalan/java"
   xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
   xmlns:foxml="info:fedora/fedora-system:def/foxml#"
-  xmlns:copyrightMD="http://www.cdlib.org/inside/diglib/copyrightMD"
   xmlns:mods="http://www.loc.gov/mods/v3"
      exclude-result-prefixes="mods java">
   <!-- <xsl:include href="/usr/local/fedora/tomcat/webapps/fedoragsearch/WEB-INF/classes/config/index/FgsIndex/islandora_transforms/library/xslt-date-template.xslt"/>-->
