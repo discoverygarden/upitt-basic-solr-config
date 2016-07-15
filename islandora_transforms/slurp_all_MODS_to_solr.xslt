@@ -4,6 +4,7 @@
   xmlns:java="http://xml.apache.org/xalan/java"
   xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
   xmlns:foxml="info:fedora/fedora-system:def/foxml#"
+  xmlns:copyrightMD="http://www.cdlib.org/inside/diglib/copyrightMD"
   xmlns:mods="http://www.loc.gov/mods/v3"
      exclude-result-prefixes="mods java">
   <!-- <xsl:include href="/usr/local/fedora/tomcat/webapps/fedoragsearch/WEB-INF/classes/config/index/FgsIndex/islandora_transforms/library/xslt-date-template.xslt"/>-->
@@ -331,7 +332,22 @@
         <xsl:value-of select="$node/@valueURI"/>
       </field>
     </xsl:if>
-
+    <xsl:if test="normalize-space($node/@copyright.status)">
+      <field>
+        <xsl:attribute name="name">
+          <xsl:value-of select="concat($prefix, 'copyright_status_', $suffix)"/>
+        </xsl:attribute>
+        <xsl:value-of select="$node/@copyright.status"/>
+      </field>
+    </xsl:if>
+    <xsl:if test="normalize-space($node/@publication.status)">
+      <field>
+        <xsl:attribute name="name">
+          <xsl:value-of select="concat($prefix, 'publication_status_', $suffix)"/>
+        </xsl:attribute>
+        <xsl:value-of select="$node/@publication.status"/>
+      </field>
+    </xsl:if>
     <xsl:apply-templates select="$node/*" mode="slurping_MODS">
       <xsl:with-param name="prefix" select="$prefix"/>
       <xsl:with-param name="suffix" select="$suffix"/>
