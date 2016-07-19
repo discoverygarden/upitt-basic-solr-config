@@ -331,7 +331,22 @@
         <xsl:value-of select="$node/@valueURI"/>
       </field>
     </xsl:if>
-
+    <xsl:if test="normalize-space($node/@copyright.status)">
+      <field>
+        <xsl:attribute name="name">
+          <xsl:value-of select="concat($prefix, 'copyright_status_', $suffix)"/>
+        </xsl:attribute>
+        <xsl:value-of select="$node/@copyright.status"/>
+      </field>
+    </xsl:if>
+    <xsl:if test="normalize-space($node/@publication.status)">
+      <field>
+        <xsl:attribute name="name">
+          <xsl:value-of select="concat($prefix, 'publication_status_', $suffix)"/>
+        </xsl:attribute>
+        <xsl:value-of select="$node/@publication.status"/>
+      </field>
+    </xsl:if>
     <xsl:apply-templates select="$node/*" mode="slurping_MODS">
       <xsl:with-param name="prefix" select="$prefix"/>
       <xsl:with-param name="suffix" select="$suffix"/>
